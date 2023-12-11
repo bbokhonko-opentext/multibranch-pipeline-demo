@@ -1,10 +1,8 @@
 pipeline {
 
-    agent {
-        label any
-        parameters {
-            string(name: 'param', defaultValue: 'value1', description: 'Descr')
-         }
+    agent any
+    parameters {
+        string(name: 'param', defaultValue: 'value1', description: 'Descr')
     }
 
     options {
