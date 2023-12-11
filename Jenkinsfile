@@ -4,6 +4,9 @@ pipeline {
         node {
             label any
         }
+         parameters {
+            string(name: 'param', defaultValue: 'value1', description: 'Descr')
+         }
     }
 
     options {
