@@ -10,16 +10,17 @@ pipeline {
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
-        wrap(delegate: [$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper', outputEnvironmentParameters: 'JAVA_HOME'])
     }
     stages {
         
         stage('Cleanup Workspace') {
             steps {            
+                wrap[$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper', outputEnvironmentParameters: 'JAVA_HOME']) {
                 cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 """                      
+                }
             }
         }
 
