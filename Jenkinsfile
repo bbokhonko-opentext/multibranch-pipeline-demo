@@ -4,15 +4,13 @@ pipeline {
     parameters {
         string(name: 'param', defaultValue: 'value1', description: 'Descr') 
     }
-    options {
-            properties([[$class: 'RunnerMiscSettingsGlobalConfiguration', outputEnvironmentParameters: 'JAVA_HOME']])
-    }
 
     options {
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
+        properties([[$class: 'RunnerMiscSettingsGlobalConfiguration', outputEnvironmentParameters: 'JAVA_HOME']])
     }
 
     stages {
