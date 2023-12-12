@@ -5,11 +5,8 @@ pipeline {
         string(name: 'param', defaultValue: 'value1', description: 'Descr') 
     }
 
-    environment { 
-        outputEnvironmentParameters = 'JAVA_HOME'
-    }
-    
     options {
+        OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
@@ -33,7 +30,6 @@ pipeline {
                     branches: [[name: '*/main']], 
                     userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
                 ])
-                new com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
             }
         }
 
