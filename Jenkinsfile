@@ -10,7 +10,7 @@ pipeline {
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
-        wrap([$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper', outputEnvironmentParameters: 'JAVA_HOME'])
+        wrap(delegate: [$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper', outputEnvironmentParameters: 'JAVA_HOME'])
     }
     stages {
         
