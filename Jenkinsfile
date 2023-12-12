@@ -3,10 +3,9 @@ pipeline {
     agent any
     parameters {
         string(name: 'param', defaultValue: 'value1', description: 'Descr') 
-        string(name: 'outputEnvironmentParameters', defaultValue: 'JAVA_HOME') 
         options {
-        properties([[$class: 'outputEnvironmentParameters', customField: 'JAVA_HOME']])
-    }
+            properties([[$class: 'outputEnvironmentParameters', customField: 'JAVA_HOME']])
+        }
     }
 
     options {
