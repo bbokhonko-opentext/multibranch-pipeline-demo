@@ -10,12 +10,12 @@ pipeline {
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
-        OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
     }
     stages {
         
         stage('Cleanup Workspace') {
             steps {
+                OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
                 cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
