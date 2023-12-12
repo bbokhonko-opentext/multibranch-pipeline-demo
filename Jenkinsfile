@@ -6,9 +6,7 @@ pipeline {
     }
 
     options {
-        script {
-            new com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
-        }
+        wrap([$class: 'OutputEnvironmentVariablesBuildWrapper']) 
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
