@@ -6,13 +6,11 @@ pipeline {
     }
 
     options {
+        OutputEnvironmentVariablesBuildWrapper(outputEnvironmentParameters: 'JAVA_HOME')
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
-    }
-    wrappers {
-        OutputEnvironmentVariablesBuildWrapper(outputEnvironmentParameters: 'JAVA_HOME')
     }
     stages {
         
