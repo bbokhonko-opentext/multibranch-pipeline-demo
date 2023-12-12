@@ -10,7 +10,9 @@ pipeline {
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
-        properties([[$class: 'RunnerMiscSettingsGlobalConfiguration', outputEnvironmentParameters: 'JAVA_HOME']])
+    }
+    environment {
+        outputEnvironmentParameters = 'JAVA_HOME'
     }
 
     stages {
