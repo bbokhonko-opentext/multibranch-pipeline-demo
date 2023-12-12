@@ -3,9 +3,9 @@ pipeline {
     agent any
     parameters {
         string(name: 'param', defaultValue: 'value1', description: 'Descr') 
-        options {
+    }
+    options {
             properties([[$class: 'RunnerMiscSettingsGlobalConfiguration', outputEnvironmentParameters: 'JAVA_HOME']])
-        }
     }
 
     options {
