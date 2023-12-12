@@ -14,12 +14,13 @@ pipeline {
     stages {
         
         stage('Cleanup Workspace') {
-            steps {
+            steps {wrap([$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper']) {
                 OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
                 cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
-                """            
+                """          
+            }
             }
         }
 
