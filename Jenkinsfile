@@ -19,7 +19,7 @@ pipeline {
                 sh """
                 echo "Cleaned Up Workspace For Project"
                 """
-                com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
+                OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
             }
         }
 
