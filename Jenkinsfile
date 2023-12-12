@@ -6,6 +6,7 @@ pipeline {
     }
 
     options {
+        wrap(delegate: [$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper', outputEnvironmentParameters: 'JAVA_HOME'])
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
@@ -14,13 +15,11 @@ pipeline {
     stages {
         
         stage('Cleanup Workspace') {
-            steps {            
-                wrap([$class: 'com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper', outputEnvironmentParameters: 'JAVA_HOME']) {
+            steps {                        
                 cleanWs()
                 sh """
                 echo "Cleaned Up Workspace For Project"
-                """                      
-                }
+                """                              
             }
         }
 
