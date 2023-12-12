@@ -11,10 +11,9 @@ pipeline {
                     numToKeepStr: '10'
             )
     }
-    environment {
-        outputEnvironmentParameters = 'JAVA_HOME'
+    wrappers {
+        OutputEnvironmentVariablesBuildWrapper(outputEnvironmentParameters: 'JAVA_HOME')
     }
-
     stages {
         
         stage('Cleanup Workspace') {
