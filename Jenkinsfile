@@ -5,13 +5,16 @@ pipeline {
         string(name: 'param', defaultValue: 'value1', description: 'Descr') 
     }
 
+    environment { 
+        outputEnvironmentParameters = 'JAVA_HOME'
+    }
+    
     options {
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
             )
     }
-    wrap([$class: 'OutputEnvironmentVariablesBuildWrapper'])
     stages {
         
         stage('Cleanup Workspace') {
