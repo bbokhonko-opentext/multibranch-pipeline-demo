@@ -6,7 +6,9 @@ pipeline {
     }
 
     options {
-        OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
+        script {
+            new OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
+        }
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
