@@ -33,7 +33,7 @@ pipeline {
                     branches: [[name: '*/main']], 
                     userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
                 ])
-                new OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
+                new com.microfocus.application.automation.tools.settings.OutputEnvironmentVariablesBuildWrapper('JAVA_HOME')
             }
         }
 
