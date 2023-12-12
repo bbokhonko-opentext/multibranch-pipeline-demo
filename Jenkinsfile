@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'param', defaultValue: 'value1', description: 'Descr') 
         options {
-            properties([[$class: 'outputEnvironmentParameters', customField: 'JAVA_HOME']])
+            properties([[$class: 'RunnerMiscSettingsGlobalConfiguration', outputEnvironmentParameters: 'JAVA_HOME']])
         }
     }
 
