@@ -6,7 +6,9 @@ pipeline {
     }
 
     options {
-        wrap([$class: 'OutputEnvironmentVariablesBuildWrapper']) 
+        wrap([$class: 'OutputEnvironmentVariablesBuildWrapper']) {
+            outputEnvironmentParameters = 'JAVA_HOME'
+        }
         buildDiscarder logRotator( 
                     daysToKeepStr: '16', 
                     numToKeepStr: '10'
